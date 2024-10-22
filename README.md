@@ -7,9 +7,9 @@ This workshop is a brief introduction to making a bookmarklet. A bookmarklet is 
 1. Visit this page: [Bookmarklet Generator](https://generatebookmarklet.pages.dev/).
 2. Copy the code below and paste it into the text area.
 
-        ```javascript
-        javascript:(function(){alert('Hello, World!');})();
-        ```
+```javascript
+javascript:(function(){alert('Hello, World!');})();
+```
         
 3. Click the "Generate Bookmarklet" button.
 4. Drag the generated link to your bookmarks bar.
