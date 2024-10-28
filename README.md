@@ -4,7 +4,7 @@ This workshop is a brief introduction to making a bookmarklet. A bookmarklet is 
 
 ## Getting Started
 
-1. Visit this page: [Bookmarklet Generator](https://generatebookmarklet.pages.dev/).
+1. Visit this page: [Bookmarklet Generator](https://caiorss.github.io/bookmarklet-maker/).
 2. Copy the code below and paste it into the text area.
 
 ```javascript
