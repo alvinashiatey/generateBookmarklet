@@ -21,6 +21,7 @@ Let's try something more interesting. In this example, we will replace all image
 document.querySelectorAll('img').forEach( img => {
         img.src ="";
         img.srcset = "";
+        img.alt = "";
         img.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`});
 ```
 
