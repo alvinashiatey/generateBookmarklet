@@ -15,18 +15,21 @@ javascript:(function(){alert('Hello, World!');})();
 4. Drag the generated link to your bookmarks bar.
 5. Visit a website and click on the bookmarklet.
 
-Let's try something more interesting. In this example, we will replace all images on a page with a picture of a cat. Copy and paste the code below into the text area.
+Let's try something more interesting. In this example, we will replace all images on a page with a random color. Copy and paste the code below into the text area.
 
 ```javascript
-javascript:(function(){document.querySelectorAll('img').forEach(img => img.src = 'https://cataas.com/cat');})();
+document.querySelectorAll('img').forEach( img => {
+        img.src ="";
+        img.srcset = "";
+        img.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`});
 ```
 
 Before we proceed, let's break down the code:
 
 - `document.querySelectorAll('img')` selects all the images on the page.
 - `forEach` is a method that iterates over each image.
-- `img.src = 'https://cataas.com/cat'` replaces the image source with a picture of a cat.
-- `javascript:(function(){...})();` is a self-invoking function that executes the code when the bookmarklet is clicked.
+- `img.src =""` and `img.srcset =""` remove the image source and source set, effectively hiding the image.
+- `img.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`` sets the background color of the image to a random color.
 
 
 ## Workshop: Introducing Friction
