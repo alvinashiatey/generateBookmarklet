@@ -58,5 +58,5 @@ Let’s take 10 minutes to brainstorm ideas with your partner. Afterward, we’l
 
 ## Resources
 
-- [Bookmarklet Generator](https://generatebookmarklet.pages.dev/)
+- [Bookmarklet Generator](https://caiorss.github.io/bookmarklet-maker/)
 - [DESIGNING FRICTION](https://designingfriction.com/)
