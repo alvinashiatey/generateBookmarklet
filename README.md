@@ -8,9 +8,9 @@ This workshop is a brief introduction to making a bookmarklet. A bookmarklet is 
 2. Copy the code below and paste it into the text area.
 
 ```javascript
-javascript:(function(){alert('Hello, World!');})();
+alert("Hello, World!");
 ```
-        
+
 3. Click the "Generate Bookmarklet" button.
 4. Drag the generated link to your bookmarks bar.
 5. Visit a website and click on the bookmarklet.
@@ -18,11 +18,12 @@ javascript:(function(){alert('Hello, World!');})();
 Let's try something more interesting. In this example, we will replace all images on a page with a random color. Copy and paste the code below into the text area.
 
 ```javascript
-document.querySelectorAll('img').forEach( img => {
-        img.src ="";
-        img.srcset = "";
-        img.alt = "";
-        img.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`});
+document.querySelectorAll("img").forEach((img) => {
+  img.src = "";
+  img.srcset = "";
+  img.alt = "";
+  img.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+});
 ```
 
 Before we proceed, let's break down the code:
@@ -30,8 +31,7 @@ Before we proceed, let's break down the code:
 - `document.querySelectorAll('img')` selects all the images on the page.
 - `forEach` is a method that iterates over each image.
 - `img.src =""` and `img.srcset =""` remove the image source and source set, effectively hiding the image.
-- `img.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`` sets the background color of the image to a random color.
-
+- `img.style.backgroundColor = `hsl(${Math.random() \* 360}, 100%, 50%)`` sets the background color of the image to a random color.
 
 ## Workshop: Introducing Friction
 
@@ -40,10 +40,10 @@ I want us to spend a few minutes reading and discussing the following article: [
 Here are a few guiding questions to shape your brainstorming session:
 
 - What is the purpose of the bookmarklet?
-        Think about what you want to achieve with this tool. Are you aiming to slow users down, make them more deliberate, or perhaps interrupt certain interactions?
+  Think about what you want to achieve with this tool. Are you aiming to slow users down, make them more deliberate, or perhaps interrupt certain interactions?
 
 - How does the bookmarklet introduce friction?
-        Identify the mechanisms through which the bookmarklet creates obstacles, delays, or challenges. What kind of friction is most effective in achieving your desired goal?
+  Identify the mechanisms through which the bookmarklet creates obstacles, delays, or challenges. What kind of friction is most effective in achieving your desired goal?
 
 Let’s take 10 minutes to brainstorm ideas with your partner. Afterward, we’ll come back together as a group to share and discuss our ideas. After that, we will spend the next 30 minutes building the bookmarklet.
 
