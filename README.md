@@ -47,6 +47,105 @@ Here are a few guiding questions to shape your brainstorming session:
 
 Let’s take 10 minutes to brainstorm ideas with your partner. Afterward, we’ll come back together as a group to share and discuss our ideas. After that, we will spend the next 30 minutes building the bookmarklet.
 
+## In-Class Demo: Friction Examples
+
+Let's try a few bookmarklets that introduce friction in playful ways:
+
+- Slow Scroll
+
+```javascript
+window.addEventListener(
+  "wheel",
+  (e) => {
+    e.preventDefault();
+    window.scrollBy({
+      top: e.deltaY * 0.05,
+      behavior: "smooth",
+    });
+  },
+  { passive: false }
+);
+```
+
+Slows down scrolling to make movement feel deliberate.
+
+- Blur Filter
+
+```javascript
+document.querySelectorAll("a").style.filter = "blur(5px)";
+```
+
+This applies a blur effect to all links on the page, making them harder to click.
+
+- Shake Reminder
+
+```javascript
+setInterval(() => {
+  document.body.style.transform = "translateX(1px)";
+  setTimeout(() => (document.body.style.transform = "translateX(-1px)"), 50);
+  setTimeout(() => (document.body.style.transform = "none"), 100);
+}, 5000);
+```
+
+This code shakes the entire page every 5 seconds, reminding users to take a break or reflect on their actions.
+
+- Inactivity Timestamp
+
+Paste the code below into the Bookmarklet Generator, click Generate, and drag the link to your bookmarks bar. When you click the bookmarklet, it will:
+
+1. Wait 30 seconds for mouse inactivity.
+2. If the cursor stays still, show the current time (HH:MM:SS) in a randomly-colored box at a random spot on the page.
+3. Every 30 seconds the box jumps to a new random position with a new color (and an updated timestamp).
+4. Any mouse movement removes the box, clears the interval, and restarts the 30-second "stillness" timer.
+
+```javascript
+(function () {
+  const WAIT_MS = 15_000; // 15 seconds
+  let inactivityTimer, intervalID, stampEl;
+
+  function showStamp() {
+    if (!stampEl) {
+      stampEl = document.createElement("div");
+      Object.assign(stampEl.style, {
+        position: "fixed",
+        padding: "6px 10px",
+        font: "50px monospace",
+        borderRadius: "4px",
+        zIndex: 999999,
+        pointerEvents: "none",
+      });
+      document.body.appendChild(stampEl);
+    }
+
+    stampEl.style.color = `hsl(${Math.random() * 360}, 80%, 50%)`;
+    stampEl.style.top = Math.random() * (window.innerHeight - 24) + "px";
+    stampEl.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    stampEl.textContent = new Date().toLocaleTimeString();
+  }
+
+  function beginStamping() {
+    showStamp(); // first one immediately
+    intervalID = setInterval(showStamp, WAIT_MS);
+  }
+
+  function clearStamping() {
+    clearInterval(intervalID);
+    intervalID = null;
+    if (stampEl) stampEl.remove();
+    stampEl = null;
+  }
+
+  function resetTimer() {
+    clearTimeout(inactivityTimer);
+    clearStamping();
+    inactivityTimer = setTimeout(beginStamping, WAIT_MS);
+  }
+
+  resetTimer();
+  window.addEventListener("mousemove", resetTimer, { passive: true });
+})();
+```
+
 ## Project worth taking a look at
 
 - [American Artist-Whitney Museum Sunset](https://news.artnet.com/art-world/american-artist-whitney-museum-1896561)
@@ -60,3 +159,19 @@ Let’s take 10 minutes to brainstorm ideas with your partner. Afterward, we’l
 
 - [Bookmarklet Generator](https://caiorss.github.io/bookmarklet-maker/)
 - [DESIGNING FRICTION](https://designingfriction.com/)
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
